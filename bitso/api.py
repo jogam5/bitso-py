@@ -29,11 +29,11 @@ import hmac
 import json
 import time
 import requests
-from urlparse import urlparse
-from urllib import urlencode
+from urllib.parse import urlparse
+from urllib.parse import urlencode
 
-
-from bitso import (ApiError, ApiClientError, Ticker, OrderBook, Balances, Fees, Trade, UserTrade, Order, TransactionQuote, TransactionOrder, LedgerEntry, FundingDestination, Withdrawal, Funding, AvailableBooks, AccountStatus, AccountRequiredField)
+# 'from bitso' for original file
+from bitsoV3 import (ApiError, ApiClientError, Ticker, OrderBook, Balances, Fees, Trade, UserTrade, Order, TransactionQuote, TransactionOrder, LedgerEntry, FundingDestination, Withdrawal, Funding, AvailableBooks, AccountStatus, AccountRequiredField)
 
 
 def current_milli_time():
