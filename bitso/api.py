@@ -462,7 +462,7 @@ class Api(object):
         Returns:
           A list of Order IDs (OIDs) for the canceled orders. Orders may not be successfully cancelled if they have been filled, have been already cancelled, or the OIDs are incorrect.        
         """
-        if isinstance(oids, basestring):
+        if isinstance(oids, str):
             oids = [oids]        
         url = '%s/orders/' % self.base_url
         url+='%s/' % ('-'.join(oids))
@@ -503,12 +503,8 @@ class Api(object):
         parameters['book'] = kwargs.get('book')
         parameters['type'] = kwargs.get('order_type')
         parameters['side'] = kwargs.get('side')
-        if 'major' in kwargs:
-            parameters['major'] = str(kwargs['major']).encode('utf-8')
-        if 'minor' in kwargs:
-            parameters['minor'] = str(kwargs['minor']).encode('utf-8')
-        if 'price' in kwargs:
-            parameters['price'] = str(kwargs['price']).encode('utf-8')
+        parameters['major'] = str( kwargs.get('major') )
+        parameters['price'] = str( kwargs.get('price') )
 
         resp = self._request_url(url, 'POST', params=parameters, private=True)
         return resp['payload']
